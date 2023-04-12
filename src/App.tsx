@@ -1,20 +1,30 @@
-import { useState } from "react";
+// import { useState } from "react";
+import React from "react";
 import "./App.css";
 
 type TitleProps = {
   children: React.ReactNode;
+  size?: "small" | "large";
 };
 
-const Title = ({ children }: TitleProps) => {
-  return <h1>{children}</h1>;
+const Title = ({ children, size }: TitleProps) => {
+  return (
+    <h1
+      style={{
+        fontSize: size === "small" ? "1.5rem" : "2rem",
+      }}
+    >
+      {children}
+    </h1>
+  );
 };
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <Title>
+      <Title size="large">
         <span>
           Hello <b>World</b>
         </span>
